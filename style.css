@@ -7,44 +7,76 @@ Sometimes, when we stretch out to larger screens, we need to make minor tweaks f
 You will find this is far easier than the opposite task of using CSS to cram your desktop experience into a mobile device.
 */
 
-
 /* THIS LINE LOADS IN A NICE RESET TO ENSURE ALL BROWSERS HAVE THE SAME BASE STYLES */
 
-@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css");
 
 /* Start your base/mobile styles here */
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    /* Sets default font-size to 16px, ensuring 1em = 16px; */
-    font-size: 16px;
+  /* Sets default font-size to 16px, ensuring 1em = 16px; */
+  font-size: 16px;
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 5px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 5px;
 }
 
 img {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 select {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
+#food {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#food > div {
+  flex-basis: calc(50% - 10px);
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.item {
+  /**
+    if you want to hide it all together
+    display: none; 
+    */
+  opacity: 0.65;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.item.active {
+  /**
+    if you want to hide it all together
+    display: block; 
+    */
+  opacity: 1;
+}
 
 /* Tablet/Desktop overrides */
+@media (min-width: 681px) {
+  #food > div {
+    flex-basis: calc(33% - 10px);
+  }
+}
 
-@media(min-width: 681px) {}
-
-@media(min-width: 729px) {
-    /* Any adjustments for desktop and larger go here. Note these styles will be applied to anything 729px or larger -- so desktop */
+@media (min-width: 729px) {
+  /* Any adjustments for desktop and larger go here. Note these styles will be applied to anything 729px or larger -- so desktop */
 }
